@@ -20,21 +20,22 @@ int start_paint(void)
     sfVideoMode mode = {800, 600, 32};
     sfRenderWindow *window = sfRenderWindow_create(mode, "SFML window",
         sfResize | sfClose, NULL);
-    sfRectangleShape* rectangle = sfRectangleShape_create();
+    sfSprite *rect = sfSprite_create();
+    sfImage *rectangle = sfImage_createFromColor(600, 450, sfWhite);
+    sfTexture *rectangle_t = sfTexture_createFromImage(rectangle, sfFalse);
     sfEvent event;
 
+    sfSprite_setTexture(rect, rectangle_t, sfFalse);
     if (!window)
         return 1;
-    sfRectangleShape_setSize(rectangle, (sfVector2f){600, 450});
-    sfRectangleShape_setFillColor(rectangle, sfWhite);
-    sfRectangleShape_setPosition(rectangle, (sfVector2f){95, 75});
+    sfSprite_setPosition(rect, (sfVector2f){95, 75});
     while (sfRenderWindow_isOpen(window)) {
         close_window(window, event);
-        sfRenderWindow_clear(window, sfBlack);
-        sfRenderWindow_drawRectangleShape(window, rectangle, NULL);
+        sfRenderWindow_clear(window, sfColor_fromRGB(190, 190, 190));
+        sfRenderWindow_drawSprite(window, rect, NULL);
         sfRenderWindow_display(window);
     }
-    sfRectangleShape_destroy(rectangle);
+    sfSprite_destroy(rect);
     sfRenderWindow_destroy(window);
     return 0;
 }
