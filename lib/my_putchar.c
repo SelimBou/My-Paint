@@ -5,7 +5,7 @@
 ** FGFDFGFG
 */
 
-#include "../include/paint.h"
+#include "../include/my.h"
 
 int my_putchar(char c)
 {

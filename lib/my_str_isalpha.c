@@ -6,7 +6,7 @@
 */
 
 #include <stdio.h>
-#include "../include/paint.h"
+#include "../include/my.h"
 
 int my_str_isalpha(const char *str)
 {

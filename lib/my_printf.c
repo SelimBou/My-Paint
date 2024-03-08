@@ -8,7 +8,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <unistd.h>
-#include "../include/paint.h"
+#include "../include/my.h"
 
 int verify_printf(char ltr, va_list args)
 {

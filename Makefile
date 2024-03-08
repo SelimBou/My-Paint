@@ -6,6 +6,8 @@
 ##
 
 SRC	=	src/main.c	\
+		src/init.c	\
+		src/init_game.c	\
 		lib/my_putchar.c	\
 		lib/my_putstr.c	\
 		lib/my_printf.c	\

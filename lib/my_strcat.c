@@ -4,7 +4,7 @@
 ** File description:
 ** my_strcat.c
 */
-#include "../include/paint.h"
+#include "../include/my.h"
 
 char *my_strcat(char *dest , char const *src)
 {

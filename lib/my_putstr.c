@@ -4,7 +4,7 @@
 ** File description:
 ** Infos
 */
-#include "../include/paint.h"
+#include "../include/my.h"
 
 int my_putstr(char *str)
 {

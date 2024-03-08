@@ -5,7 +5,7 @@
 ** main.c
 */
 
-#include "../include/paint.h"
+#include "../include/my.h"
 
 static void close_window(sfRenderWindow *window, sfEvent event)
 {

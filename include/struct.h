@@ -23,14 +23,20 @@ typedef struct params {
     sfMusic *music;
 } params_t;
 
+typedef struct parames {
+    char **token_list;
+    int number_token;
+    char *new_value;
+    char *copy;
+    char *token;
+} parames_t;
+
 typedef struct image {
     sfTexture *texture;
     sfSprite *sprite;
     sfVector2f scale;
     sfVector2f position;
     sfIntRect rect;
-    sfClock *clock;
-    float xVelocity;
 } image_t;
 
 typedef struct global {

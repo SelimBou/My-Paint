@@ -5,7 +5,7 @@
 ** strcmp.c
 */
 
-#include "../include/paint.h"
+#include "../include/my.h"
 
 int my_strcmp(const char *str1, const char *str2)
 {

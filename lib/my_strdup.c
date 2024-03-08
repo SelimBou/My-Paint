@@ -5,7 +5,7 @@
 ** my_strdup.c
 */
 
-#include "../include/paint.h"
+#include "../include/my.h"
 
 char *my_strdup(char *str)
 {

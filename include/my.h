@@ -5,7 +5,9 @@
 ** shell_one.h
 */
 
-#ifndef PAINT
+#ifndef STRUCT_PAINT_
+    #define STRUCT_PAINT_
+
     #define PAINT
     #define BUF_SIZE 1024
     #include <SFML/Graphics.h>
@@ -18,13 +20,13 @@
     #include <sys/wait.h>
     #include <sys/stat.h>
     #include <fcntl.h>
-typedef struct params {
-    char **token_list;
-    int number_token;
-    char *new_value;
-    char *copy;
-    char *token;
-} params_t;
+    #include "struct.h"
+    #define WINDOW all->settings.window
+    #define MODE all->settings.video_mode
+    #define EVENT all->settings.event
+    #define IMAGE all->pics
+
+
 int my_putchar(char c);
 int my_printf(const char *format, ...);
 int my_putstr(char *str);
