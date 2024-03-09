@@ -6,7 +6,7 @@
 */
 #include "../include/my.h"
 
-char *my_strcat(char *dest , char const *src)
+char *my_strcat(char *dest, char const *src)
 {
     int i = 0;
     int len = 0;
@@ -22,4 +22,3 @@ char *my_strcat(char *dest , char const *src)
     dest[i] = '\0';
     return dest;
 }
-

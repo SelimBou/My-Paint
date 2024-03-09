@@ -7,46 +7,38 @@
 
 #include "../include/my.h"
 
-static void close_window(sfRenderWindow *window, sfEvent event)
+void close_it(global_t *all)
 {
-    while (sfRenderWindow_pollEvent(window, &event)) {
-        if (event.type == sfEvtClosed)
-            sfRenderWindow_close(window);
+    if (EVENT.type == sfEvtClosed) {
+        sfRenderWindow_close(WINDOW);
     }
 }
 
-int start_paint(void)
+void main_menu(global_t *all)
 {
-    sfVideoMode mode = {800, 600, 32};
-    sfRenderWindow *window = sfRenderWindow_create(mode, "SFML window",
-        sfResize | sfClose, NULL);
-    sfSprite *rect = sfSprite_create();
-    sfImage *rectangle = sfImage_createFromColor(600, 450, sfWhite);
-    sfTexture *rectangle_t = sfTexture_createFromImage(rectangle, sfFalse);
-    sfEvent event;
-
-    sfSprite_setTexture(rect, rectangle_t, sfFalse);
-    if (!window)
-        return 1;
-    sfSprite_setPosition(rect, (sfVector2f){95, 75});
-    while (sfRenderWindow_isOpen(window)) {
-        close_window(window, event);
-        sfRenderWindow_clear(window, sfColor_fromRGB(190, 190, 190));
-        sfRenderWindow_drawSprite(window, rect, NULL);
-        sfRenderWindow_display(window);
+    sfRenderWindow_clear(WINDOW, sfBlack);
+    while (sfRenderWindow_isOpen(WINDOW)) {
+        while (sfRenderWindow_pollEvent(WINDOW, &EVENT)) {
+            close_it(all);
+        }
+        sfRenderWindow_drawSprite(WINDOW, IMAGE[0].sprite, NULL);
+        sfRenderWindow_drawSprite(WINDOW, IMAGE[1].sprite, NULL);
+        cursor(all);
+        draw_it(all);
+        sfRenderWindow_display(WINDOW);
     }
-    sfSprite_destroy(rect);
-    sfRenderWindow_destroy(window);
-    return 0;
 }
 
 int main(int argc, char **argv)
 {
+    global_t all;
+
     if (argc != 1) {
         write(2, "Error in number of args\n", 25);
         return 84;
     } else {
-        start_paint();
+        init(&all);
+        main_menu(&all);
         return 0;
     }
 }

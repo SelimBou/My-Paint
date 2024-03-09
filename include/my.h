@@ -25,16 +25,22 @@
     #define MODE all->settings.video_mode
     #define EVENT all->settings.event
     #define IMAGE all->pics
+    #define CANVAS all->settings.canvas
+    #define BRUSH all->settings.brush
 
 
 int my_putchar(char c);
+int draw_it(global_t *all);
+void can(global_t *all);
 int my_printf(const char *format, ...);
 int my_putstr(char *str);
+void init(global_t *all);
 int my_strlen(char const *str);
+void cursor(global_t *all);
 char *my_strcpy(char *dest, char *src);
 int my_strcmp(const char *str1, const char *str2);
 char *my_strdup(char *str);
 int my_strncmp(const char *s1, const char *s2, size_t n);
 int my_str_isalpha(const char *str);
-char *my_strcat(char *dest , char const *src);
+char *my_strcat(char *dest, char const *src);
 #endif
