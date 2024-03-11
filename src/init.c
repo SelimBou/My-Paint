@@ -45,6 +45,7 @@ void init_bckg(global_t *all)
     IMAGE[11].position.y = 110;
     sfSprite_setTexture(IMAGE[11].sprite, IMAGE[11].texture, sfTrue);
     sfSprite_setPosition(IMAGE[11].sprite, IMAGE[11].position);
+    sfRenderWindow_drawSprite(WINDOW, IMAGE[11].sprite, NULL);
 }
 
 void init_buttons(global_t *all)
