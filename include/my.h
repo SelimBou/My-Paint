@@ -41,6 +41,7 @@ void init_window(global_t *all);
 void init_menu(global_t *all);
 void init_buttons(global_t *all);
 void init_colors(global_t *all);
+void init_bckg(global_t *all);
 void init_files(global_t *all);
 int erease_it(global_t *all);
 int my_strlen(char const *str);

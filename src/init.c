@@ -19,7 +19,7 @@ void init_menu(global_t *all)
 {
     sfColor color = sfColor_fromRGB(128, 128, 128);
 
-    IMAGE = malloc(sizeof(image_t) * 11);
+    IMAGE = malloc(sizeof(image_t) * 12);
     IMAGE[0].image = sfImage_createFromColor(1980, 970, sfWhite);
     IMAGE[0].texture = sfTexture_createFromImage(IMAGE[0].image, sfFalse);
     IMAGE[0].sprite = sfSprite_create();
@@ -34,6 +34,17 @@ void init_menu(global_t *all)
     IMAGE[1].position.y = 0;
     sfSprite_setTexture(IMAGE[1].sprite, IMAGE[1].texture, sfTrue);
     sfSprite_setPosition(IMAGE[1].sprite, IMAGE[1].position);
+}
+
+void init_bckg(global_t *all)
+{
+    IMAGE[11].image = sfImage_createFromColor(1980, 970, sfWhite);
+    IMAGE[11].texture = sfTexture_createFromImage(IMAGE[11].image, sfFalse);
+    IMAGE[11].sprite = sfSprite_create();
+    IMAGE[11].position.x = 0;
+    IMAGE[11].position.y = 110;
+    sfSprite_setTexture(IMAGE[11].sprite, IMAGE[11].texture, sfTrue);
+    sfSprite_setPosition(IMAGE[11].sprite, IMAGE[11].position);
 }
 
 void init_buttons(global_t *all)
