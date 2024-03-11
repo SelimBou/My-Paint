@@ -33,6 +33,17 @@ void close_it(global_t *all)
     }
 }
 
+void exit_button(global_t *all)
+{
+    sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
+
+    if (mouse.x >= 1750 && mouse.x <= 1800 && mouse.y >= 0 && mouse.y <= 80) {
+            if (EVENT.type == sfEvtMouseButtonPressed) {
+                sfRenderWindow_close(WINDOW);;
+            }
+    }
+}
+
 void main_menu(global_t *all)
 {
     while (sfRenderWindow_isOpen(WINDOW)) {
@@ -47,11 +58,14 @@ void main_menu(global_t *all)
         sfRenderWindow_drawSprite(WINDOW, IMAGE[4].sprite, NULL);
         sfRenderWindow_drawSprite(WINDOW, IMAGE[5].sprite, NULL);
         sfRenderWindow_drawSprite(WINDOW, IMAGE[6].sprite, NULL);
+        sfRenderWindow_drawSprite(WINDOW, IMAGE[7].sprite, NULL);
+        sfRenderWindow_drawSprite(WINDOW, IMAGE[8].sprite, NULL);
+        sfRenderWindow_drawSprite(WINDOW, IMAGE[9].sprite, NULL);
         draw_it(all);
         erease_it(all);
         cursor(all);
         sfRenderWindow_display(WINDOW);
-        //on_click(all);
+        exit_button(all);
     }
 }
 

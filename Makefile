@@ -8,6 +8,7 @@
 SRC	=	src/main.c	\
 		src/init.c	\
 		src/draw.c	\
+		src/init_b.c	\
 		lib/my_putchar.c	\
 		lib/my_putstr.c	\
 		lib/my_printf.c	\

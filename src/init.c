@@ -5,11 +5,6 @@
 ** initiate sprites
 */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <SFML/Graphics.h>
-#include <SFML/Window.h>
-#include <SFML/Audio.h>
 #include "../include/my.h"
 
 void init_window(global_t *all)
@@ -98,63 +93,29 @@ void init_files(global_t *all)
 {
     IMAGE[7].texture = sfTexture_createFromFile("content/save.png", NULL);
     IMAGE[7].sprite = sfSprite_create();
-    IMAGE[7].scale.x = 0.10;
-    IMAGE[7].scale.y = 0.10;
-    IMAGE[7].position.x = 500;
-    IMAGE[7].position.y = 20;
+    IMAGE[7].scale.x = 0.2;
+    IMAGE[7].scale.y = 0.2;
+    IMAGE[7].position.x = 1300;
+    IMAGE[7].position.y = 5;
     sfSprite_setTexture(IMAGE[7].sprite, IMAGE[7].texture, sfTrue);
     sfSprite_setScale(IMAGE[7].sprite, IMAGE[7].scale);
     sfSprite_setPosition(IMAGE[7].sprite, IMAGE[7].position);
     IMAGE[8].texture = sfTexture_createFromFile("content/clear.png", NULL);
     IMAGE[8].sprite = sfSprite_create();
-    IMAGE[8].scale.x = 0.10;
-    IMAGE[8].scale.y = 0.10;
-    IMAGE[8].position.x = 600;
-    IMAGE[8].position.y = 20;
+    IMAGE[8].scale.x = 0.35;
+    IMAGE[8].scale.y = 0.35;
+    IMAGE[8].position.x = 1450;
+    IMAGE[8].position.y = 5;
     sfSprite_setTexture(IMAGE[8].sprite, IMAGE[8].texture, sfTrue);
     sfSprite_setScale(IMAGE[8].sprite, IMAGE[8].scale);
     sfSprite_setPosition(IMAGE[8].sprite, IMAGE[8].position);
     IMAGE[9].texture = sfTexture_createFromFile("content/exit.png", NULL);
     IMAGE[9].sprite = sfSprite_create();
-    IMAGE[9].scale.x = 0.10;
-    IMAGE[9].scale.y = 0.10;
-    IMAGE[9].position.x = 700;
-    IMAGE[9].position.y = 20;
+    IMAGE[9].scale.x = 0.15;
+    IMAGE[9].scale.y = 0.15;
+    IMAGE[9].position.x = 1750;
+    IMAGE[9].position.y = 0;
     sfSprite_setTexture(IMAGE[9].sprite, IMAGE[9].texture, sfTrue);
     sfSprite_setScale(IMAGE[9].sprite, IMAGE[9].scale);
     sfSprite_setPosition(IMAGE[9].sprite, IMAGE[9].position);
-}
-
-void cursor(global_t *all)
-{
-    sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
-    sfVector2f mouse_pos = {mouse.x - 10, mouse.y};
-
-    sfWindow_setMouseCursorVisible(WINDOW, sfFalse);
-    IMAGE[10].texture = sfTexture_createFromFile("content/cr.png", NULL);
-    IMAGE[10].sprite = sfSprite_create();
-    sfSprite_setTexture(IMAGE[10].sprite, IMAGE[10].texture, sfTrue);
-    sfSprite_setPosition(IMAGE[10].sprite, mouse_pos);
-    IMAGE[10].scale.x = 0.25;
-    IMAGE[10].scale.y = 0.25;
-    sfSprite_setScale(IMAGE[10].sprite, IMAGE[10].scale);
-    sfRenderWindow_drawSprite(WINDOW, IMAGE[10].sprite, NULL);
-}
-
-void can(global_t *all)
-{
-    all->settings.canvas = sfRenderTexture_create(1920, 1080, sfFalse);
-    all->settings.brush = sfCircleShape_create();
-    sfCircleShape_setRadius(all->settings.brush, 5);
-    sfCircleShape_setFillColor(all->settings.brush, sfBlack);
-}
-
-void init(global_t *all)
-{
-    init_window(all);
-    init_menu(all);
-    init_buttons(all);
-    init_colors(all);
-    init_files(all);
-    can(all);
 }
