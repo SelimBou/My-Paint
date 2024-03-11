@@ -7,6 +7,25 @@
 
 #include "../include/my.h"
 
+void on_click(global_t *all)
+{
+    sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
+
+    if (mouse.x >= 800 && mouse.x <= 1100 &&
+    mouse.y >= 500 && mouse.y <= 600) {
+            if (EVENT.type == sfEvtMouseButtonPressed) {
+                printf("succes");
+                //game_deco_ennemy(all);
+            }
+    }
+    if (mouse.x >= 800 && mouse.x <= 1100 &&
+    mouse.y >= 650 && mouse.y <= 750) {
+            if (EVENT.type == sfEvtMouseButtonPressed) {
+                sfRenderWindow_close(WINDOW);
+            }
+    }
+}
+
 void close_it(global_t *all)
 {
     if (EVENT.type == sfEvtClosed) {
@@ -16,16 +35,23 @@ void close_it(global_t *all)
 
 void main_menu(global_t *all)
 {
-    sfRenderWindow_clear(WINDOW, sfBlack);
     while (sfRenderWindow_isOpen(WINDOW)) {
         while (sfRenderWindow_pollEvent(WINDOW, &EVENT)) {
             close_it(all);
         }
+        sfRenderWindow_clear(WINDOW, sfBlack);
         sfRenderWindow_drawSprite(WINDOW, IMAGE[0].sprite, NULL);
         sfRenderWindow_drawSprite(WINDOW, IMAGE[1].sprite, NULL);
-        cursor(all);
+        sfRenderWindow_drawSprite(WINDOW, IMAGE[2].sprite, NULL);
+        sfRenderWindow_drawSprite(WINDOW, IMAGE[3].sprite, NULL);
+        sfRenderWindow_drawSprite(WINDOW, IMAGE[4].sprite, NULL);
+        sfRenderWindow_drawSprite(WINDOW, IMAGE[5].sprite, NULL);
+        sfRenderWindow_drawSprite(WINDOW, IMAGE[6].sprite, NULL);
         draw_it(all);
+        erease_it(all);
+        cursor(all);
         sfRenderWindow_display(WINDOW);
+        //on_click(all);
     }
 }
 

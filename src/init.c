@@ -41,6 +41,90 @@ void init_menu(global_t *all)
     sfSprite_setPosition(IMAGE[1].sprite, IMAGE[1].position);
 }
 
+void init_buttons(global_t *all)
+{
+    IMAGE[2].texture = sfTexture_createFromFile("content/cr.png", NULL);
+    IMAGE[2].sprite = sfSprite_create();
+    IMAGE[2].scale.x = 0.13;
+    IMAGE[2].scale.y = 0.13;
+    IMAGE[2].position.x = 100;
+    IMAGE[2].position.y = 20;
+    sfSprite_setTexture(IMAGE[2].sprite, IMAGE[2].texture, sfTrue);
+    sfSprite_setScale(IMAGE[2].sprite, IMAGE[2].scale);
+    sfSprite_setPosition(IMAGE[2].sprite, IMAGE[2].position);
+    IMAGE[3].texture = sfTexture_createFromFile("content/gomme.png", NULL);
+    IMAGE[3].sprite = sfSprite_create();
+    IMAGE[3].scale.x = 0.13;
+    IMAGE[3].scale.y = 0.13;
+    IMAGE[3].position.x = 200;
+    IMAGE[3].position.y = 20;
+    sfSprite_setTexture(IMAGE[3].sprite, IMAGE[3].texture, sfTrue);
+    sfSprite_setScale(IMAGE[3].sprite, IMAGE[3].scale);
+    sfSprite_setPosition(IMAGE[3].sprite, IMAGE[3].position);
+}
+
+void init_colors(global_t *all)
+{
+    IMAGE[4].texture = sfTexture_createFromFile("content/red.png", NULL);
+    IMAGE[4].sprite = sfSprite_create();
+    IMAGE[4].scale.x = 0.10;
+    IMAGE[4].scale.y = 0.10;
+    IMAGE[4].position.x = 500;
+    IMAGE[4].position.y = 20;
+    sfSprite_setTexture(IMAGE[4].sprite, IMAGE[4].texture, sfTrue);
+    sfSprite_setScale(IMAGE[4].sprite, IMAGE[4].scale);
+    sfSprite_setPosition(IMAGE[4].sprite, IMAGE[4].position);
+    IMAGE[5].texture = sfTexture_createFromFile("content/green.png", NULL);
+    IMAGE[5].sprite = sfSprite_create();
+    IMAGE[5].scale.x = 0.10;
+    IMAGE[5].scale.y = 0.10;
+    IMAGE[5].position.x = 600;
+    IMAGE[5].position.y = 20;
+    sfSprite_setTexture(IMAGE[5].sprite, IMAGE[5].texture, sfTrue);
+    sfSprite_setScale(IMAGE[5].sprite, IMAGE[5].scale);
+    sfSprite_setPosition(IMAGE[5].sprite, IMAGE[5].position);
+    IMAGE[6].texture = sfTexture_createFromFile("content/blue.png", NULL);
+    IMAGE[6].sprite = sfSprite_create();
+    IMAGE[6].scale.x = 0.10;
+    IMAGE[6].scale.y = 0.10;
+    IMAGE[6].position.x = 700;
+    IMAGE[6].position.y = 20;
+    sfSprite_setTexture(IMAGE[6].sprite, IMAGE[6].texture, sfTrue);
+    sfSprite_setScale(IMAGE[6].sprite, IMAGE[6].scale);
+    sfSprite_setPosition(IMAGE[6].sprite, IMAGE[6].position);
+}
+
+void init_files(global_t *all)
+{
+    IMAGE[7].texture = sfTexture_createFromFile("content/save.png", NULL);
+    IMAGE[7].sprite = sfSprite_create();
+    IMAGE[7].scale.x = 0.10;
+    IMAGE[7].scale.y = 0.10;
+    IMAGE[7].position.x = 500;
+    IMAGE[7].position.y = 20;
+    sfSprite_setTexture(IMAGE[7].sprite, IMAGE[7].texture, sfTrue);
+    sfSprite_setScale(IMAGE[7].sprite, IMAGE[7].scale);
+    sfSprite_setPosition(IMAGE[7].sprite, IMAGE[7].position);
+    IMAGE[8].texture = sfTexture_createFromFile("content/clear.png", NULL);
+    IMAGE[8].sprite = sfSprite_create();
+    IMAGE[8].scale.x = 0.10;
+    IMAGE[8].scale.y = 0.10;
+    IMAGE[8].position.x = 600;
+    IMAGE[8].position.y = 20;
+    sfSprite_setTexture(IMAGE[8].sprite, IMAGE[8].texture, sfTrue);
+    sfSprite_setScale(IMAGE[8].sprite, IMAGE[8].scale);
+    sfSprite_setPosition(IMAGE[8].sprite, IMAGE[8].position);
+    IMAGE[9].texture = sfTexture_createFromFile("content/exit.png", NULL);
+    IMAGE[9].sprite = sfSprite_create();
+    IMAGE[9].scale.x = 0.10;
+    IMAGE[9].scale.y = 0.10;
+    IMAGE[9].position.x = 700;
+    IMAGE[9].position.y = 20;
+    sfSprite_setTexture(IMAGE[9].sprite, IMAGE[9].texture, sfTrue);
+    sfSprite_setScale(IMAGE[9].sprite, IMAGE[9].scale);
+    sfSprite_setPosition(IMAGE[9].sprite, IMAGE[9].position);
+}
+
 void cursor(global_t *all)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
@@ -69,5 +153,8 @@ void init(global_t *all)
 {
     init_window(all);
     init_menu(all);
+    init_buttons(all);
+    init_colors(all);
+    init_files(all);
     can(all);
 }
