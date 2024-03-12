@@ -27,13 +27,13 @@
     #define IMAGE all->pics
     #define CANVAS all->settings.canvas
     #define BRUSH all->settings.brush
+    #define COLOR all->settings.color
 
 
 int my_putchar(char c);
 int draw_it(global_t *all);
 void can(global_t *all);
-int my_printf(const char *format, ...);
-int my_putstr(char *str);
+void draw_ui(global_t *all);
 void cursor(global_t *all);
 void can(global_t *all);
 void init(global_t *all);
@@ -41,12 +41,20 @@ void init_window(global_t *all);
 void init_menu(global_t *all);
 void init_buttons(global_t *all);
 void init_colors(global_t *all);
-void init_bckg(global_t *all);
 void init_files(global_t *all);
 int erease_it(global_t *all);
+void clear_button(global_t *all);
+void clear_canvas(global_t *all);
+void save_button(global_t *all);
+void save_canvas(global_t *all);
+void eraser_button(global_t *all);
+void save_button(global_t *all);
+void save_canvas(global_t *all);
 int my_strlen(char const *str);
 void cursor(global_t *all);
-char *my_strcpy(char *dest, char *src);
+void clear_canvas(global_t *all);
+void clear_canvas(global_t *all);
+void clear_canvas(global_t *all);
 int my_strcmp(const char *str1, const char *str2);
 char *my_strdup(char *str);
 int my_strncmp(const char *s1, const char *s2, size_t n);

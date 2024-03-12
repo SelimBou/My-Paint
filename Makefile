@@ -9,16 +9,6 @@ SRC	=	src/main.c	\
 		src/init.c	\
 		src/draw.c	\
 		src/init_b.c	\
-		lib/my_putchar.c	\
-		lib/my_putstr.c	\
-		lib/my_printf.c	\
-		lib/my_strlen.c	\
-		lib/my_strdup.c	\
-		lib/strcmp.c	\
-		lib/my_str_isalpha.c	\
-		lib/strncmp.c	\
-		lib/my_strcpy.c	\
-		lib/my_strcat.c	\
 
 OBJ = $(SRC:.c=.o)
 

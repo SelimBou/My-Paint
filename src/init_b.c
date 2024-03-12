@@ -25,10 +25,28 @@ void cursor(global_t *all)
 
 void can(global_t *all)
 {
+    sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
+
+    if (mouse.x >= 500 && mouse.x <= 600 && mouse.y >= 0 && mouse.y <= 100) {
+        if (EVENT.type == sfEvtMouseButtonPressed) {
+            printf("red");
+            COLOR = sfRed;
+        }
+    } else if (mouse.x >= 600 && mouse.x <= 700 && mouse.y >= 0 && mouse.y <= 100) {
+        if (EVENT.type == sfEvtMouseButtonPressed) {
+            printf("green");
+            COLOR = sfGreen;
+        }
+    } else if (mouse.x >= 700 && mouse.x <= 800 && mouse.y >= 0 && mouse.y <= 100) {
+        if (EVENT.type == sfEvtMouseButtonPressed) {
+            printf("blue");
+            COLOR = sfBlue;
+        }
+    }
     all->settings.canvas = sfRenderTexture_create(1920, 1080, sfFalse);
     all->settings.brush = sfCircleShape_create();
     sfCircleShape_setRadius(all->settings.brush, 5);
-    sfCircleShape_setFillColor(all->settings.brush, sfBlack);
+    sfCircleShape_setFillColor(all->settings.brush, COLOR);
 }
 
 void init(global_t *all)

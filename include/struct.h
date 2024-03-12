@@ -21,6 +21,7 @@ typedef struct params {
     sfRenderWindow *window;
     sfRenderTexture *canvas;
     sfCircleShape *brush;
+    sfColor color;
     sfEvent event;
     sfMusic *music;
 } params_t;
@@ -37,6 +38,7 @@ typedef struct image {
 typedef struct global {
     params_t settings;
     image_t *pics;
+    bool eraser_selected;
 } global_t;
 
 #endif
