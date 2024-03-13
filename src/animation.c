@@ -12,16 +12,16 @@ void hover(global_t *all)
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
 
     init_manually(all);
-    IMAGE[20].buttoncol = sfBlack;
-    IMAGE[21].buttoncol = sfBlack;
-    IMAGE[22].buttoncol = sfBlack;
-    IMAGE[23].buttoncol = sfBlack;
-    for (int i = 12; i <= 15; i++) {
-        for (int k = 20; k <= 23; k++) {
+    IMAGE[8].buttoncol = sfBlack;
+    IMAGE[9].buttoncol = sfBlack;
+    IMAGE[10].buttoncol = sfBlack;
+    IMAGE[11].buttoncol = sfBlack;
+    for (int i = 4; i <= 7; i++) {
+        for (int k = 8; k <= 11; k++) {
             if (mouse.x >= IMAGE[i].position.x &&
             mouse.x <= IMAGE[i].position.x + 120 &&
             mouse.y >= IMAGE[i].position.y &&
-            mouse.y <= IMAGE[i].position.y + 60 && i == k - 8) {
+            mouse.y <= IMAGE[i].position.y + 60 && i == k - 4) {
                 IMAGE[k].buttoncol = sfRed;
                 IMAGE[i].image = sfImage_createFromColor(120, 60,
                     IMAGE[k].buttoncol);

@@ -66,7 +66,6 @@ void pressed(global_t *all, int i, int k);
 void show_it(global_t *all);
 void clear_canvas(global_t *all);
 void change_color(global_t *all);
-void init_colors_b(global_t *all);
-void init_files_b(global_t *all);
+void cleanup_buttons(global_t *all);
 void main_menu(global_t *all);
 #endif

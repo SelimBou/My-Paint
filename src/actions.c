@@ -11,10 +11,10 @@ void clear_button(global_t *all)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
 
-    if (mouse.x >= IMAGE[14].position.x &&
-    mouse.x <= IMAGE[14].position.x + 120 &&
-    mouse.y >= IMAGE[14].position.y &&
-    mouse.y <= IMAGE[14].position.y + 60) {
+    if (mouse.x >= IMAGE[6].position.x &&
+    mouse.x <= IMAGE[6].position.x + 120 &&
+    mouse.y >= IMAGE[6].position.y &&
+    mouse.y <= IMAGE[6].position.y + 60) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
             clear_canvas(all);
         }
@@ -25,10 +25,10 @@ void help_button(global_t *all)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
 
-    if (mouse.x >= IMAGE[13].position.x &&
-    mouse.x <= IMAGE[13].position.x + 120 &&
-    mouse.y >= IMAGE[13].position.y &&
-    mouse.y <= IMAGE[13].position.y + 60) {
+    if (mouse.x >= IMAGE[5].position.x &&
+    mouse.x <= IMAGE[5].position.x + 120 &&
+    mouse.y >= IMAGE[5].position.y &&
+    mouse.y <= IMAGE[5].position.y + 60) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
             return;
         }
@@ -39,10 +39,10 @@ void save_button(global_t *all)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
 
-    if (mouse.x >= IMAGE[15].position.x &&
-    mouse.x <= IMAGE[15].position.x + 120 &&
-    mouse.y >= IMAGE[15].position.y &&
-    mouse.y <= IMAGE[15].position.y + 60) {
+    if (mouse.x >= IMAGE[7].position.x &&
+    mouse.x <= IMAGE[7].position.x + 120 &&
+    mouse.y >= IMAGE[7].position.y &&
+    mouse.y <= IMAGE[7].position.y + 60) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
             save_canvas(all);
         }

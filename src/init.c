@@ -19,7 +19,7 @@ void init_menu(global_t *all)
 {
     sfColor color = sfColor_fromRGB(128, 128, 128);
 
-    IMAGE = malloc(sizeof(image_t) * 26);
+    IMAGE = malloc(sizeof(image_t) * 18);
     IMAGE[0].image = sfImage_createFromColor(1980, 970, sfWhite);
     IMAGE[0].texture = sfTexture_createFromImage(IMAGE[0].image, sfFalse);
     IMAGE[0].sprite = sfSprite_create();
@@ -58,35 +58,6 @@ void init_buttons(global_t *all)
     sfSprite_setPosition(IMAGE[3].sprite, IMAGE[3].position);
 }
 
-/*void init_colors(global_t *all)
-{
-    IMAGE[4].image = sfImage_createFromColor(120, 60, sfRed);
-    IMAGE[4].texture = sfTexture_createFromImage(IMAGE[4].image, sfFalse);
-    IMAGE[4].sprite = sfSprite_create();
-    IMAGE[4].position.x = 1060;
-    IMAGE[4].position.y = 25;
-    sfSprite_setTexture(IMAGE[4].sprite, IMAGE[4].texture, sfTrue);
-    sfSprite_setPosition(IMAGE[4].sprite, IMAGE[4].position);
-    IMAGE[5].image = sfImage_createFromColor(120, 60, sfGreen);
-    IMAGE[5].texture = sfTexture_createFromImage(IMAGE[5].image, sfFalse);
-    IMAGE[5].sprite = sfSprite_create();
-    IMAGE[5].position.x = 860;
-    IMAGE[5].position.y = 25;
-    sfSprite_setTexture(IMAGE[5].sprite, IMAGE[5].texture, sfTrue);
-    sfSprite_setPosition(IMAGE[5].sprite, IMAGE[5].position);
-}
-
-void init_colors_b(global_t *all)
-{
-    IMAGE[6].image = sfImage_createFromColor(120, 60, sfBlue);
-    IMAGE[6].texture = sfTexture_createFromImage(IMAGE[6].image, sfFalse);
-    IMAGE[6].sprite = sfSprite_create();
-    IMAGE[6].position.x = 660;
-    IMAGE[6].position.y = 25;
-    sfSprite_setTexture(IMAGE[6].sprite, IMAGE[6].texture, sfTrue);
-    sfSprite_setPosition(IMAGE[6].sprite, IMAGE[6].position);
-}*/
-
 void init_button(global_t *all, int i, int x, int y, sfColor color)
 {
     sfRectangleShape* rect = sfRectangleShape_create();
@@ -105,14 +76,15 @@ void init_colors(global_t *all)
     init_button(all, 2, 860, 25, sfGreen);
 }
 
-/*void destroy_button(button_t *button)
-{
-    sfRectangleShape_destroy(button->rect);
-}
-
 void cleanup_buttons(global_t *all)
 {
-    destroy_button(&IMAGE[4]);
-    destroy_button(&IMAGE[5]);
+    for (int i = 0; i <= 13; i++) {
+        sfSprite_destroy(IMAGE[i].sprite);
+    }
+    for (int i = 14; i <= 17; i++) {
+        sfText_destroy(IMAGE[i].text);
+    }
+    for (int k = 0; k <= 2; k++) {
+        sfRectangleShape_destroy(BUTTON[k].rect);
+    }
 }
-*/

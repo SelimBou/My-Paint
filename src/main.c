@@ -20,20 +20,17 @@ void draw_ui(global_t *all)
     sfRenderWindow_drawSprite(WINDOW, IMAGE[1].sprite, NULL);
     sfRenderWindow_drawSprite(WINDOW, IMAGE[2].sprite, NULL);
     sfRenderWindow_drawSprite(WINDOW, IMAGE[3].sprite, NULL);
+    sfRenderWindow_drawSprite(WINDOW, IMAGE[4].sprite, NULL);
+    sfRenderWindow_drawSprite(WINDOW, IMAGE[5].sprite, NULL);
+    sfRenderWindow_drawSprite(WINDOW, IMAGE[6].sprite, NULL);
+    sfRenderWindow_drawSprite(WINDOW, IMAGE[7].sprite, NULL);
+    sfRenderWindow_drawText(WINDOW, IMAGE[14].text, NULL);
+    sfRenderWindow_drawText(WINDOW, IMAGE[15].text, NULL);
+    sfRenderWindow_drawText(WINDOW, IMAGE[16].text, NULL);
+    sfRenderWindow_drawText(WINDOW, IMAGE[17].text, NULL);
     sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[0].rect, NULL);
     sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[1].rect, NULL);
     sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[2].rect, NULL);
-    //sfRenderWindow_drawSprite(WINDOW, IMAGE[7].sprite, NULL);
-    //sfRenderWindow_drawSprite(WINDOW, IMAGE[8].sprite, NULL);
-    //sfRenderWindow_drawSprite(WINDOW, IMAGE[9].sprite, NULL);
-    sfRenderWindow_drawSprite(WINDOW, IMAGE[12].sprite, NULL);
-    sfRenderWindow_drawSprite(WINDOW, IMAGE[13].sprite, NULL);
-    sfRenderWindow_drawSprite(WINDOW, IMAGE[14].sprite, NULL);
-    sfRenderWindow_drawSprite(WINDOW, IMAGE[15].sprite, NULL);
-    sfRenderWindow_drawText(WINDOW, IMAGE[16].text, NULL);
-    sfRenderWindow_drawText(WINDOW, IMAGE[17].text, NULL);
-    sfRenderWindow_drawText(WINDOW, IMAGE[18].text, NULL);
-    sfRenderWindow_drawText(WINDOW, IMAGE[19].text, NULL);
 }
 
 void all_actions(global_t *all)
@@ -66,6 +63,7 @@ void main_menu(global_t *all)
         all_actions(all);
         sfRenderWindow_display(WINDOW);
     }
+    cleanup_buttons(all);
 }
 
 int main(int argc, char **argv)
