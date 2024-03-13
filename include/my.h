@@ -11,6 +11,7 @@
     #define PAINT
     #define BUF_SIZE 1024
     #include <SFML/Graphics.h>
+    #include <SFML/System.h>
     #include <stdbool.h>
     #include <stdio.h>
     #include <unistd.h>
@@ -38,34 +39,30 @@ int draw_it(global_t *all);
 void can(global_t *all);
 void draw_ui(global_t *all);
 void cursor(global_t *all);
-void init_manually_b(global_t *all);
 void can(global_t *all);
 void init(global_t *all);
 void init_window(global_t *all);
 void init_menu(global_t *all);
 void init_buttons(global_t *all);
 void init_colors(global_t *all);
-void init_files(global_t *all);
 int erease_it(global_t *all);
-void clear_button(global_t *all);
 void clear_canvas(global_t *all);
-void save_button(global_t *all);
 void save_canvas(global_t *all);
-void eraser_button(global_t *all);
-void save_button(global_t *all);
+void clickable_section(global_t *all);
 void save_canvas(global_t *all);
 void cursor(global_t *all);
 void exit_button(global_t *all);
 void change_color_b(global_t *all, sfVector2i mouse);
-void init_manually(global_t *all);
 void drawings(global_t *all);
-void help_button(global_t *all);
 void init_text_b(global_t *all);
 void hover(global_t *all);
-void pressed(global_t *all, int i, int k);
+void pressed(global_t *all, int i);
+void verify_click(global_t *all);
+void open_section(global_t *all);
 void show_it(global_t *all);
 void clear_canvas(global_t *all);
 void change_color(global_t *all);
+void init_col_pos(global_t *all);
 void cleanup_buttons(global_t *all);
 void main_menu(global_t *all);
 #endif

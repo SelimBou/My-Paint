@@ -11,10 +11,10 @@ void exit_button(global_t *all)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
 
-    if (mouse.x >= IMAGE[4].position.x &&
-    mouse.x <= IMAGE[4].position.x + 120 &&
-    mouse.y >= IMAGE[4].position.y &&
-    mouse.y <= IMAGE[4].position.y + 60) {
+    if (mouse.x >= BUTTON[6].pos.x &&
+    mouse.x <= BUTTON[6].pos.x + 120 &&
+    mouse.y >= BUTTON[6].pos.y &&
+    mouse.y <= BUTTON[6].pos.y + 60) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
             sfRenderWindow_close(WINDOW);
         }

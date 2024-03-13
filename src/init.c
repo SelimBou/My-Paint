@@ -40,19 +40,19 @@ void init_buttons(global_t *all)
 {
     IMAGE[2].texture = sfTexture_createFromFile("content/cr.png", NULL);
     IMAGE[2].sprite = sfSprite_create();
-    IMAGE[2].scale.x = 0.13;
-    IMAGE[2].scale.y = 0.13;
-    IMAGE[2].position.x = 100;
-    IMAGE[2].position.y = 20;
+    IMAGE[2].scale.x = 0.11;
+    IMAGE[2].scale.y = 0.11;
+    IMAGE[2].position.x = 1500;
+    IMAGE[2].position.y = 110;
     sfSprite_setTexture(IMAGE[2].sprite, IMAGE[2].texture, sfTrue);
     sfSprite_setScale(IMAGE[2].sprite, IMAGE[2].scale);
     sfSprite_setPosition(IMAGE[2].sprite, IMAGE[2].position);
     IMAGE[3].texture = sfTexture_createFromFile("content/gomme.png", NULL);
     IMAGE[3].sprite = sfSprite_create();
-    IMAGE[3].scale.x = 0.13;
-    IMAGE[3].scale.y = 0.13;
-    IMAGE[3].position.x = 200;
-    IMAGE[3].position.y = 20;
+    IMAGE[3].scale.x = 0.11;
+    IMAGE[3].scale.y = 0.11;
+    IMAGE[3].position.x = 1500;
+    IMAGE[3].position.y = 190;
     sfSprite_setTexture(IMAGE[3].sprite, IMAGE[3].texture, sfTrue);
     sfSprite_setScale(IMAGE[3].sprite, IMAGE[3].scale);
     sfSprite_setPosition(IMAGE[3].sprite, IMAGE[3].position);
@@ -69,14 +69,20 @@ void init_button(global_t *all, int i, int x, int y, sfColor color)
 
 void init_colors(global_t *all)
 {
-    all->button = malloc(sizeof(button_t) * 8);
-
+    init_button(all, 0, 1060, 25, sfRed);
     init_button(all, 1, 660, 25, sfBlue);
     init_button(all, 2, 860, 25, sfGreen);
-    init_button(all, 0, 1060, 25, sfRed);
-    init_button(all, 3, 1400, 25, sfBlack);
-    init_button(all, 4, 1550, 25, sfBlack);
-    init_button(all, 5, 1700, 25, sfBlack);
+    init_button(all, 3, BUTTON[3].pos.x, BUTTON[3].pos.y, BUTTON[3].buttoncol);
+    init_button(all, 4, BUTTON[4].pos.x, BUTTON[4].pos.y, BUTTON[4].buttoncol);
+    init_button(all, 5, BUTTON[5].pos.x, BUTTON[5].pos.y, BUTTON[5].buttoncol);
+    init_button(all, 6, BUTTON[6].pos.x, BUTTON[6].pos.y, BUTTON[6].buttoncol);
+    init_button(all, 7, BUTTON[7].pos.x, BUTTON[7].pos.y, BUTTON[7].buttoncol);
+    init_button(all, 8, BUTTON[8].pos.x, BUTTON[8].pos.y, BUTTON[8].buttoncol);
+    init_button(all, 9, BUTTON[9].pos.x, BUTTON[9].pos.y, BUTTON[9].buttoncol);
+    init_button(all, 10, BUTTON[10].pos.x, BUTTON[10].pos.y, BUTTON[10].buttoncol);
+    init_button(all, 11, BUTTON[11].pos.x, BUTTON[11].pos.y, BUTTON[11].buttoncol);
+    init_button(all, 12, BUTTON[12].pos.x, BUTTON[12].pos.y, BUTTON[12].buttoncol);
+    init_button(all, 13, BUTTON[13].pos.x, BUTTON[13].pos.y, BUTTON[13].buttoncol);
 }
 
 void cleanup_buttons(global_t *all)

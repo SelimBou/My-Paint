@@ -23,6 +23,7 @@ typedef struct button_s {
     sfSprite* sprite;
     sfVector2f pos;
     sfColor buttoncol;
+    bool clicked;
 } button_t;
 
 typedef struct params {
@@ -51,7 +52,11 @@ typedef struct global {
     params_t settings;
     image_t *pics;
     button_t *button;
-    bool eraser_selected;
+    bool pen_selected;
+    bool clicked_file;
+    bool clicked_edit;
+    bool clicked_help;
+
 } global_t;
 
 #endif
