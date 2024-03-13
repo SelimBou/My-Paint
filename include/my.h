@@ -30,7 +30,9 @@
     #define COLOR all->settings.color
     #define FONT all->settings.font
     #define TEXT all->pics.text
+    #define BUTTON all->button
 
+void init_button(global_t *all, int i, int x, int y, sfColor color);
 
 int draw_it(global_t *all);
 void can(global_t *all);

@@ -25,18 +25,12 @@ void change_color(global_t *all)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
 
-    if (mouse.x >= IMAGE[4].position.x &&
-    mouse.x <= IMAGE[4].position.x + 100 &&
-    mouse.y >= IMAGE[4].position.y &&
-    mouse.y <= IMAGE[4].position.y + 130) {
+    if (mouse.x >=  1060 && mouse.x <= 1180 && mouse.y >=  25 && mouse.y <=  85) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
             COLOR = sfRed;
         }
     }
-    if (mouse.x >= IMAGE[5].position.x
-    && mouse.x <= IMAGE[5].position.x + 100 &&
-    mouse.y >= IMAGE[5].position.y &&
-    mouse.y <= IMAGE[5].position.y + 130) {
+    if (mouse.x >=  660 && mouse.x <= 980 && mouse.y >=  25 && mouse.y <=  85) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
             COLOR = sfColor_fromRGB(0, 255, 0);
         }
@@ -46,10 +40,7 @@ void change_color(global_t *all)
 
 void change_color_b(global_t *all, sfVector2i mouse)
 {
-    if (mouse.x >= IMAGE[6].position.x
-    && mouse.x <= IMAGE[6].position.x + 100 &&
-    mouse.y >= IMAGE[6].position.y &&
-    mouse.y <= IMAGE[6].position.y + 130) {
+    if (mouse.x >=  660 && mouse.x <= 780 && mouse.y >=  25 && mouse.y <=  85) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
             COLOR = sfColor_fromRGB(0, 0, 255);
         }

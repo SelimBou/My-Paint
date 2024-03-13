@@ -16,6 +16,11 @@
 #ifndef STRUCT_H_
     #define STRUCT_H_
 
+typedef struct button_s {
+    sfRectangleShape *rect;
+    sfVector2f pos;
+} button_t;
+
 typedef struct params {
     sfVideoMode video_mode;
     sfRenderWindow *window;
@@ -41,6 +46,7 @@ typedef struct image {
 typedef struct global {
     params_t settings;
     image_t *pics;
+    button_t *button;
     bool eraser_selected;
 } global_t;
 

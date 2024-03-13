@@ -78,18 +78,27 @@ void clear_canvas(global_t *all)
 
 void save_canvas(global_t *all)
 {
-    sfRenderTexture* white_background = sfRenderTexture_create(1920, 970, sfFalse);
+    sfRenderTexture* white_background;
+    sfTexture* drawing_texture;
+    sfSprite* drawing_sprite;
+    sfFloatRect bounds;
+    const sfTexture *canvas_texture;
+    sfImage *canvas_image;
+
+    white_background = sfRenderTexture_create(1920, 970, sfFalse);
     sfRenderTexture_clear(white_background, sfWhite);
-    sfTexture* drawing_texture = (sfTexture*)sfRenderTexture_getTexture(CANVAS);
-    sfSprite* drawing_sprite = sfSprite_create();
+    drawing_texture = (sfTexture*)sfRenderTexture_getTexture(CANVAS);
+    drawing_sprite = sfSprite_create();
     sfSprite_setTexture(drawing_sprite, drawing_texture, sfTrue);
-    sfFloatRect bounds = sfSprite_getLocalBounds(drawing_sprite);
-    sfSprite_setOrigin(drawing_sprite, (sfVector2f){bounds.width / 2, bounds.height / 2});
-    sfSprite_setPosition(drawing_sprite, (sfVector2f){bounds.width / 2, bounds.height / 2});
+    bounds = sfSprite_getLocalBounds(drawing_sprite);
+    sfSprite_setOrigin(drawing_sprite, (sfVector2f){bounds.width / 2,
+        bounds.height / 2});
+    sfSprite_setPosition(drawing_sprite, (sfVector2f){bounds.width / 2,
+        bounds.height / 2});
     sfSprite_setScale(drawing_sprite, (sfVector2f){1, -1});
     sfRenderTexture_drawSprite(white_background, drawing_sprite, NULL);
-    const sfTexture *canvas_texture = sfRenderTexture_getTexture(white_background);
-    sfImage *canvas_image = sfTexture_copyToImage(canvas_texture);
+    canvas_texture = sfRenderTexture_getTexture(white_background);
+    canvas_image = sfTexture_copyToImage(canvas_texture);
     sfImage_saveToFile(canvas_image, "saved_drawing.jpg");
     sfSprite_destroy(drawing_sprite);
     sfImage_destroy(canvas_image);

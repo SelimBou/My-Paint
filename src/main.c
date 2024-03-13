@@ -20,9 +20,9 @@ void draw_ui(global_t *all)
     sfRenderWindow_drawSprite(WINDOW, IMAGE[1].sprite, NULL);
     sfRenderWindow_drawSprite(WINDOW, IMAGE[2].sprite, NULL);
     sfRenderWindow_drawSprite(WINDOW, IMAGE[3].sprite, NULL);
-    sfRenderWindow_drawSprite(WINDOW, IMAGE[4].sprite, NULL);
-    sfRenderWindow_drawSprite(WINDOW, IMAGE[5].sprite, NULL);
-    sfRenderWindow_drawSprite(WINDOW, IMAGE[6].sprite, NULL);
+    sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[0].rect, NULL);
+    sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[1].rect, NULL);
+    sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[2].rect, NULL);
     //sfRenderWindow_drawSprite(WINDOW, IMAGE[7].sprite, NULL);
     //sfRenderWindow_drawSprite(WINDOW, IMAGE[8].sprite, NULL);
     //sfRenderWindow_drawSprite(WINDOW, IMAGE[9].sprite, NULL);

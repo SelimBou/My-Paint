@@ -58,7 +58,7 @@ void init_buttons(global_t *all)
     sfSprite_setPosition(IMAGE[3].sprite, IMAGE[3].position);
 }
 
-void init_colors(global_t *all)
+/*void init_colors(global_t *all)
 {
     IMAGE[4].image = sfImage_createFromColor(120, 60, sfRed);
     IMAGE[4].texture = sfTexture_createFromImage(IMAGE[4].image, sfFalse);
@@ -85,4 +85,34 @@ void init_colors_b(global_t *all)
     IMAGE[6].position.y = 25;
     sfSprite_setTexture(IMAGE[6].sprite, IMAGE[6].texture, sfTrue);
     sfSprite_setPosition(IMAGE[6].sprite, IMAGE[6].position);
+}*/
+
+void init_button(global_t *all, int i, int x, int y, sfColor color)
+{
+    sfRectangleShape* rect = sfRectangleShape_create();
+    sfRectangleShape_setSize(rect, (sfVector2f){120.0f, 60.0f});
+    sfRectangleShape_setFillColor(rect, color);
+    sfRectangleShape_setPosition(rect, (sfVector2f){x, y});
+    all->button[i].rect = rect;
 }
+
+void init_colors(global_t *all)
+{
+    all->button = malloc(sizeof(button_t) * 4);
+
+    init_button(all, 0, 1060, 25, sfRed);
+    init_button(all, 1, 660, 25, sfBlue);
+    init_button(all, 2, 860, 25, sfGreen);
+}
+
+/*void destroy_button(button_t *button)
+{
+    sfRectangleShape_destroy(button->rect);
+}
+
+void cleanup_buttons(global_t *all)
+{
+    destroy_button(&IMAGE[4]);
+    destroy_button(&IMAGE[5]);
+}
+*/

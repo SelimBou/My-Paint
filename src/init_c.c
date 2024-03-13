@@ -98,8 +98,9 @@ void init(global_t *all)
     init_window(all);
     init_menu(all);
     init_buttons(all);
+    //init_colors(all);
+    //init_colors_b(all);
     init_colors(all);
-    init_colors_b(all);
     init_files(all);
     init_files_b(all);
     init_text(all);
