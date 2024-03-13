@@ -17,8 +17,12 @@
     #define STRUCT_H_
 
 typedef struct button_s {
+    sfImage *image;
     sfRectangleShape *rect;
+    sfTexture* texture;
+    sfSprite* sprite;
     sfVector2f pos;
+    sfColor buttoncol;
 } button_t;
 
 typedef struct params {

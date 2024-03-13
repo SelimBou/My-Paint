@@ -14,7 +14,7 @@ void show_it(global_t *all)
     sfSprite_destroy(IMAGE[12].sprite);
 }
 
-void init_manually(global_t *all)
+/*void init_manually(global_t *all)
 {
     IMAGE[4].image = sfImage_createFromColor(120, 60, IMAGE[8].buttoncol);
     IMAGE[4].texture = sfTexture_createFromImage(IMAGE[4].image, sfFalse);
@@ -49,7 +49,7 @@ void init_manually_b(global_t *all)
     IMAGE[7].position.y = 25;
     sfSprite_setTexture(IMAGE[7].sprite, IMAGE[7].texture, sfTrue);
     sfSprite_setPosition(IMAGE[7].sprite, IMAGE[7].position);
-}
+}*/
 
 void init_text(global_t *all)
 {
@@ -59,7 +59,7 @@ void init_text(global_t *all)
     sfText_setFont(IMAGE[14].text, FONT);
     sfText_setCharacterSize(IMAGE[14].text, 50);
     sfText_setFillColor(IMAGE[14].text, sfWhite);
-    IMAGE[14].position.x = 1350;
+    IMAGE[14].position.x = 1400;
     IMAGE[14].position.y = 25;
     sfText_setPosition(IMAGE[14].text, IMAGE[14].position);
     IMAGE[15].text = sfText_create();
@@ -67,7 +67,7 @@ void init_text(global_t *all)
     sfText_setFont(IMAGE[15].text, FONT);
     sfText_setCharacterSize(IMAGE[15].text, 50);
     sfText_setFillColor(IMAGE[15].text, sfWhite);
-    IMAGE[15].position.x = 1500;
+    IMAGE[15].position.x = 1550;
     IMAGE[15].position.y = 25;
     sfText_setPosition(IMAGE[15].text, IMAGE[15].position);
     init_text_b(all);
@@ -80,7 +80,7 @@ void init_text_b(global_t *all)
     sfText_setFont(IMAGE[16].text, FONT);
     sfText_setCharacterSize(IMAGE[16].text, 50);
     sfText_setFillColor(IMAGE[16].text, sfWhite);
-    IMAGE[16].position.x = 1650;
+    IMAGE[16].position.x = 1700;
     IMAGE[16].position.y = 25;
     sfText_setPosition(IMAGE[16].text, IMAGE[16].position);
     IMAGE[17].text = sfText_create();
@@ -88,7 +88,7 @@ void init_text_b(global_t *all)
     sfText_setFont(IMAGE[17].text, FONT);
     sfText_setCharacterSize(IMAGE[17].text, 50);
     sfText_setFillColor(IMAGE[17].text, sfWhite);
-    IMAGE[17].position.x = 1800;
+    IMAGE[17].position.x = 1850;
     IMAGE[17].position.y = 25;
     sfText_setPosition(IMAGE[17].text, IMAGE[17].position);
 }

@@ -7,7 +7,7 @@
 
 #include "../include/my.h"
 
-void clear_button(global_t *all)
+/*void clear_button(global_t *all)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
 
@@ -33,9 +33,9 @@ void help_button(global_t *all)
             return;
         }
     }
-}
+}*/
 
-void save_button(global_t *all)
+/*void save_button(global_t *all)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
 
@@ -47,7 +47,7 @@ void save_button(global_t *all)
             save_canvas(all);
         }
     }
-}
+}*/
 
 void eraser_button(global_t *all)
 {

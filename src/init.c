@@ -69,11 +69,14 @@ void init_button(global_t *all, int i, int x, int y, sfColor color)
 
 void init_colors(global_t *all)
 {
-    all->button = malloc(sizeof(button_t) * 4);
+    all->button = malloc(sizeof(button_t) * 8);
 
-    init_button(all, 0, 1060, 25, sfRed);
     init_button(all, 1, 660, 25, sfBlue);
     init_button(all, 2, 860, 25, sfGreen);
+    init_button(all, 0, 1060, 25, sfRed);
+    init_button(all, 3, 1400, 25, sfBlack);
+    init_button(all, 4, 1550, 25, sfBlack);
+    init_button(all, 5, 1700, 25, sfBlack);
 }
 
 void cleanup_buttons(global_t *all)

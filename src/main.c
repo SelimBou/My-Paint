@@ -20,17 +20,16 @@ void draw_ui(global_t *all)
     sfRenderWindow_drawSprite(WINDOW, IMAGE[1].sprite, NULL);
     sfRenderWindow_drawSprite(WINDOW, IMAGE[2].sprite, NULL);
     sfRenderWindow_drawSprite(WINDOW, IMAGE[3].sprite, NULL);
-    sfRenderWindow_drawSprite(WINDOW, IMAGE[4].sprite, NULL);
-    sfRenderWindow_drawSprite(WINDOW, IMAGE[5].sprite, NULL);
-    sfRenderWindow_drawSprite(WINDOW, IMAGE[6].sprite, NULL);
-    sfRenderWindow_drawSprite(WINDOW, IMAGE[7].sprite, NULL);
+    sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[0].rect, NULL);
+    sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[1].rect, NULL);
+    sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[2].rect, NULL);
+    sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[3].rect, NULL);
+    sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[4].rect, NULL);
+    sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[5].rect, NULL);
     sfRenderWindow_drawText(WINDOW, IMAGE[14].text, NULL);
     sfRenderWindow_drawText(WINDOW, IMAGE[15].text, NULL);
     sfRenderWindow_drawText(WINDOW, IMAGE[16].text, NULL);
     sfRenderWindow_drawText(WINDOW, IMAGE[17].text, NULL);
-    sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[0].rect, NULL);
-    sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[1].rect, NULL);
-    sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[2].rect, NULL);
 }
 
 void all_actions(global_t *all)
@@ -45,7 +44,7 @@ void all_actions(global_t *all)
         erease_it(all);
         show_it(all);
     }
-    cursor(all);
+    //cursor(all);
 }
 
 void main_menu(global_t *all)
@@ -53,10 +52,10 @@ void main_menu(global_t *all)
     while (sfRenderWindow_isOpen(WINDOW)) {
         while (sfRenderWindow_pollEvent(WINDOW, &EVENT)) {
             close_it(all);
-            clear_button(all);
-            save_button(all);
+            //clear_button(all);
+            //save_button(all);
             eraser_button(all);
-            help_button(all);
+            //help_button(all);
         }
         sfRenderWindow_clear(WINDOW, sfWhite);
         hover(all);
