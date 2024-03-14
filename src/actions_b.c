@@ -25,14 +25,16 @@ void change_color(global_t *all)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
 
-    if (mouse.x >=  1060 && mouse.x <= 1180 && mouse.y >=  25 && mouse.y <=  85) {
+    if (mouse.x >= 400 && mouse.x <= 520 && mouse.y >= 25 &&
+        mouse.y <= 85) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
             COLOR = sfRed;
         }
     }
-    if (mouse.x >=  660 && mouse.x <= 980 && mouse.y >=  25 && mouse.y <=  85) {
+    if (mouse.x >= 100 && mouse.x <= 220 && mouse.y >= 25 &&
+        mouse.y <= 85) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
-            COLOR = sfColor_fromRGB(0, 255, 0);
+            COLOR = sfGreen;
         }
     }
     change_color_b(all, mouse);
@@ -40,9 +42,16 @@ void change_color(global_t *all)
 
 void change_color_b(global_t *all, sfVector2i mouse)
 {
-    if (mouse.x >=  660 && mouse.x <= 780 && mouse.y >=  25 && mouse.y <=  85) {
+    if (mouse.x >= 250 && mouse.x <= 370 && mouse.y >= 25
+        && mouse.y <= 85) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
-            COLOR = sfColor_fromRGB(0, 0, 255);
+            COLOR = sfBlue;
+        }
+    }
+    if (mouse.x >= 550 && mouse.x <= 670 && mouse.y >= 25
+        && mouse.y <= 85) {
+        if (EVENT.type == sfEvtMouseButtonPressed) {
+            COLOR = sfBlack;
         }
     }
 }

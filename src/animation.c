@@ -10,33 +10,36 @@
 void hover(global_t *all)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
-    all->button = malloc(sizeof(button_t) * 14);
 
+    all->button = malloc(sizeof(button_t) * 15);
     init_col_pos(all);
     for (int i = 3; i <= 6; i++) {
         if (mouse.x >= BUTTON[i].pos.x && mouse.x <= BUTTON[i].pos.x + 120 &&
-        mouse.y >= BUTTON[i].pos.y && mouse.y <= BUTTON[i].pos.y + 60) {
+            mouse.y >= BUTTON[i].pos.y && mouse.y <= BUTTON[i].pos.y + 60) {
             BUTTON[i].buttoncol = sfRed;
             pressed(all, i);
         }
     }
     for (int i = 7; i <= 9; i++) {
         if (mouse.x >= BUTTON[i].pos.x && mouse.x <= BUTTON[i].pos.x + 120 &&
-        mouse.y >= BUTTON[i].pos.y && mouse.y <= BUTTON[i].pos.y + 60 && all->clicked_file == true) {
+            mouse.y >= BUTTON[i].pos.y && mouse.y <= BUTTON[i].pos.y + 60 &&
+            all->clicked_file == true) {
             BUTTON[i].buttoncol = sfRed;
             pressed(all, i);
         }
     }
     for (int i = 10; i <= 11; i++) {
         if (mouse.x >= BUTTON[i].pos.x && mouse.x <= BUTTON[i].pos.x + 120 &&
-        mouse.y >= BUTTON[i].pos.y && mouse.y <= BUTTON[i].pos.y + 60 && all->clicked_edit == true) {
+            mouse.y >= BUTTON[i].pos.y && mouse.y <= BUTTON[i].pos.y + 60 &&
+            all->clicked_edit == true) {
             BUTTON[i].buttoncol = sfRed;
             pressed(all, i);
         }
     }
     for (int i = 12; i <= 13; i++) {
         if (mouse.x >= BUTTON[i].pos.x && mouse.x <= BUTTON[i].pos.x + 120 &&
-        mouse.y >= BUTTON[i].pos.y && mouse.y <= BUTTON[i].pos.y + 60 && all->clicked_help == true) {
+            mouse.y >= BUTTON[i].pos.y && mouse.y <= BUTTON[i].pos.y + 60 &&
+            all->clicked_help == true) {
             BUTTON[i].buttoncol = sfRed;
             pressed(all, i);
         }

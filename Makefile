@@ -13,6 +13,7 @@ SRC	=	src/main.c	\
 		src/actions.c	\
 		src/actions_b.c	\
 		src/animation.c	\
+		src/clean.c	\
 
 OBJ = $(SRC:.c=.o)
 
