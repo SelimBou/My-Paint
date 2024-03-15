@@ -63,11 +63,33 @@ static void open_section(global_t *all)
         sfRectangleShape_destroy(BUTTON[12].rect);
         sfRectangleShape_destroy(BUTTON[13].rect);
     }
+    if (all->clicked_exit == true) {
+        sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[15].rect, NULL);
+        sfRenderWindow_drawText(WINDOW, IMAGE[22].text, NULL);
+        sfRenderWindow_drawText(WINDOW, IMAGE[23].text, NULL);
+        sfRenderWindow_drawText(WINDOW, IMAGE[24].text, NULL);
+    }
 }
 
 static void clickable_section(global_t *all)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
+
+    if (mouse.x >= IMAGE[23].position.x &&
+    mouse.x <= IMAGE[23].position.x + 75 &&
+    mouse.y >= IMAGE[23].position.y &&
+    mouse.y <= IMAGE[23].position.y + 20 && all->clicked_exit == true) {
+        save_canvas(all);
+        if (EVENT.type == sfEvtMouseButtonPressed)
+            sfRenderWindow_close(WINDOW);
+    }
+    if (mouse.x >= IMAGE[24].position.x &&
+    mouse.x <= IMAGE[24].position.x + 75 &&
+    mouse.y >= IMAGE[24].position.y &&
+    mouse.y <= IMAGE[24].position.y + 20 && all->clicked_exit == true) {
+        if (EVENT.type == sfEvtMouseButtonPressed)
+            sfRenderWindow_close(WINDOW);
+    }
 
     if (mouse.x >= BUTTON[7].pos.x && mouse.x <= BUTTON[7].pos.x + 120 &&
     mouse.y >= BUTTON[7].pos.y && mouse.y <= BUTTON[7].pos.y + 60 &&
@@ -87,7 +109,8 @@ static void clickable_section(global_t *all)
     mouse.y >= BUTTON[10].pos.y && mouse.y <= BUTTON[10].pos.y + 60 &&
     all->clicked_file == true) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
-            printf("open file\n");
+            FILE *file = fopen("../saved_drawing.jpg", "w");
+            fclose(file);
         }
     }
     if (mouse.x >= BUTTON[10].pos.x && mouse.x <= BUTTON[10].pos.x + 120 &&
@@ -124,7 +147,7 @@ void all_actions(global_t *all)
 {
     draw_ui(all);
     change_color(all);
-    exit_button(all);
+    //exit_button(all);
     if (all->pen_selected == true) {
         draw_it(all);
         show_it(all);
@@ -141,6 +164,7 @@ void main_menu(global_t *all)
     all->clicked_file = false;
     all->clicked_edit = false;
     all->clicked_help = false;
+    all->clicked_exit = false;
     all->pen_selected = true;
     while (sfRenderWindow_isOpen(WINDOW)) {
         while (sfRenderWindow_pollEvent(WINDOW, &EVENT)) {
@@ -178,6 +202,15 @@ void verify_click(global_t *all)
         mouse.y >= BUTTON[5].pos.y && mouse.y <= BUTTON[5].pos.y + 60) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
             all->clicked_help = !all->clicked_help;
+            all->clicked_edit = false;
+            all->clicked_file = false;
+        }
+    }
+    if (mouse.x >= BUTTON[6].pos.x && mouse.x <= BUTTON[6].pos.x + 120 &&
+        mouse.y >= BUTTON[6].pos.y && mouse.y <= BUTTON[6].pos.y + 60) {
+        if (EVENT.type == sfEvtMouseButtonPressed) {
+            all->clicked_exit = !all->clicked_exit;
+            all->clicked_help = false;
             all->clicked_edit = false;
             all->clicked_file = false;
         }

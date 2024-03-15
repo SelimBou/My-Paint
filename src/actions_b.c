@@ -7,19 +7,23 @@
 
 #include "../include/my.h"
 
-void exit_button(global_t *all)
+/*void display_save_prompt(sfRenderWindow* window, global_t *all)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
 
-    if (mouse.x >= BUTTON[6].pos.x &&
-    mouse.x <= BUTTON[6].pos.x + 120 &&
-    mouse.y >= BUTTON[6].pos.y &&
-    mouse.y <= BUTTON[6].pos.y + 60) {
+}*/
+
+/*void exit_button(global_t *all)
+{
+    sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
+
+    if (mouse.x >= BUTTON[6].pos.x && mouse.x <= BUTTON[6].pos.x + 120 &&
+    mouse.y >= BUTTON[6].pos.y && mouse.y <= BUTTON[6].pos.y + 60) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
-            sfRenderWindow_close(WINDOW);
+            display_save_prompt(WINDOW, all);
         }
     }
-}
+}*/
 
 void change_color(global_t *all)
 {

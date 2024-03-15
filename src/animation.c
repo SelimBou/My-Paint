@@ -7,48 +7,66 @@
 
 #include "../include/my.h"
 
+static void apply_red(global_t *all, int i)
+{
+    if ((i <= 6) ||
+        (i >= 7 && i <= 9 && all->clicked_file == true) ||
+        (i >= 10 && i <= 11 && all->clicked_edit == true) ||
+        (i >= 12 && i <= 13 && all->clicked_help == true)) {
+        BUTTON[i].buttoncol = sfRed;
+        pressed(all, i);
+    }
+}
+
 void hover(global_t *all)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
 
-    all->button = malloc(sizeof(button_t) * 15);
+    all->button = malloc(sizeof(button_t) * 16);
     init_col_pos(all);
-    for (int i = 3; i <= 6; i++) {
+    for (int i = 3; i <= 13; i++) {
         if (mouse.x >= BUTTON[i].pos.x && mouse.x <= BUTTON[i].pos.x + 120 &&
             mouse.y >= BUTTON[i].pos.y && mouse.y <= BUTTON[i].pos.y + 60) {
-            BUTTON[i].buttoncol = sfRed;
-            pressed(all, i);
+            apply_red(all, i);
         }
     }
-    for (int i = 7; i <= 9; i++) {
-        if (mouse.x >= BUTTON[i].pos.x && mouse.x <= BUTTON[i].pos.x + 120 &&
-            mouse.y >= BUTTON[i].pos.y && mouse.y <= BUTTON[i].pos.y + 60 &&
-            all->clicked_file == true) {
-            BUTTON[i].buttoncol = sfRed;
-            pressed(all, i);
-        }
+    if (mouse.x >= BUTTON[0].pos.x && mouse.x <= BUTTON[0].pos.x + 120 &&
+        mouse.y >= BUTTON[0].pos.y && mouse.y <= BUTTON[0].pos.y + 60) {
+        BUTTON[0].buttoncol = sfColor_fromRGB(175, 0, 0);
+        pressed(all, 0);
     }
-    for (int i = 10; i <= 11; i++) {
-        if (mouse.x >= BUTTON[i].pos.x && mouse.x <= BUTTON[i].pos.x + 120 &&
-            mouse.y >= BUTTON[i].pos.y && mouse.y <= BUTTON[i].pos.y + 60 &&
-            all->clicked_edit == true) {
-            BUTTON[i].buttoncol = sfRed;
-            pressed(all, i);
-        }
+    if (mouse.x >= BUTTON[1].pos.x && mouse.x <= BUTTON[1].pos.x + 120 &&
+        mouse.y >= BUTTON[1].pos.y && mouse.y <= BUTTON[1].pos.y + 60) {
+        BUTTON[1].buttoncol = sfColor_fromRGB(0, 0, 175);
+        pressed(all, 1);
     }
-    for (int i = 12; i <= 13; i++) {
-        if (mouse.x >= BUTTON[i].pos.x && mouse.x <= BUTTON[i].pos.x + 120 &&
-            mouse.y >= BUTTON[i].pos.y && mouse.y <= BUTTON[i].pos.y + 60 &&
-            all->clicked_help == true) {
-            BUTTON[i].buttoncol = sfRed;
-            pressed(all, i);
-        }
+    if (mouse.x >= BUTTON[2].pos.x && mouse.x <= BUTTON[2].pos.x + 120 &&
+        mouse.y >= BUTTON[2].pos.y && mouse.y <= BUTTON[2].pos.y + 60) {
+        BUTTON[2].buttoncol = sfColor_fromRGB(0, 175, 0);
+        pressed(all, 2);
+    }
+    if (mouse.x >= BUTTON[14].pos.x && mouse.x <= BUTTON[14].pos.x + 120 &&
+        mouse.y >= BUTTON[14].pos.y && mouse.y <= BUTTON[14].pos.y + 60) {
+        BUTTON[14].buttoncol = sfColor_fromRGB(25, 25, 25);
+        pressed(all, 14);
     }
     init_colors(all);
 }
 
 void init_col_pos(global_t *all)
 {
+    BUTTON[0].buttoncol = sfRed;
+    BUTTON[0].pos.x = 400;
+    BUTTON[0].pos.y = 25;
+    BUTTON[1].buttoncol = sfBlue;
+    BUTTON[1].pos.x = 250;
+    BUTTON[1].pos.y = 25;
+    BUTTON[2].buttoncol = sfGreen;
+    BUTTON[2].pos.x = 100;
+    BUTTON[2].pos.y = 25;
+    BUTTON[14].buttoncol = sfBlack;
+    BUTTON[14].pos.x = 550;
+    BUTTON[14].pos.y = 25;
     BUTTON[3].buttoncol = sfBlack;
     BUTTON[3].pos.x = 1350;
     BUTTON[3].pos.y = 25;
@@ -82,11 +100,26 @@ void init_col_pos(global_t *all)
     BUTTON[13].buttoncol = sfBlack;
     BUTTON[13].pos.x = 1610;
     BUTTON[13].pos.y = 190;
+    BUTTON[15].buttoncol = sfColor_fromRGB(128, 128, 0);
+    BUTTON[15].pos.x = 810;
+    BUTTON[15].pos.y = 400;
 }
 
 void pressed(global_t *all, int i)
 {
     if (EVENT.type == sfEvtMouseButtonPressed) {
         BUTTON[i].buttoncol = sfGreen;
+    }
+    if (EVENT.type == sfEvtMouseButtonPressed && i == 0) {
+        BUTTON[0].buttoncol = sfColor_fromRGB(130, 0, 0);
+    }
+    if (EVENT.type == sfEvtMouseButtonPressed && i == 1) {
+        BUTTON[1].buttoncol = sfColor_fromRGB(0, 0, 130);
+    }
+    if (EVENT.type == sfEvtMouseButtonPressed && i == 2) {
+        BUTTON[2].buttoncol = sfColor_fromRGB(0, 130, 0);
+    }
+    if (EVENT.type == sfEvtMouseButtonPressed && i == 14) {
+        BUTTON[14].buttoncol = sfColor_fromRGB(50, 50, 50);
     }
 }

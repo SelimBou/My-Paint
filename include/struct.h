@@ -16,6 +16,15 @@
 #ifndef STRUCT_H_
     #define STRUCT_H_
 
+typedef struct text_button_s {
+    int index;
+    char *str;
+    int size;
+    sfColor color;
+    int x;
+    int y;
+} text_button_t;
+
 typedef struct button_s {
     sfImage *image;
     sfRectangleShape *rect;
@@ -56,7 +65,7 @@ typedef struct global {
     bool clicked_file;
     bool clicked_edit;
     bool clicked_help;
-
+    bool clicked_exit;
 } global_t;
 
 #endif

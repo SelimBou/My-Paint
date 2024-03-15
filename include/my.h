@@ -33,8 +33,9 @@
     #define TEXT all->pics.text
     #define BUTTON all->button
 
-void init_button(global_t *all, int i, int x, int y, sfColor color);
-
+void display_save_prompt(sfRenderWindow* window, global_t *all);
+void init_button(global_t *all, int i, sfVector2f position, sfColor color);
+void close_it(global_t *all);
 int draw_it(global_t *all);
 void can(global_t *all);
 void cursor(global_t *all);
