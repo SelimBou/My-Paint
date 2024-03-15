@@ -41,6 +41,7 @@ void open_section_help_exit(global_t *all)
     if (all->clicked_help == true) {
         sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[12].rect, NULL);
         sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[13].rect, NULL);
+        sfRenderWindow_drawText(WINDOW, IMAGE[25].text, NULL);
         sfRenderWindow_drawText(WINDOW, IMAGE[21].text, NULL);
     } else {
         sfRectangleShape_destroy(BUTTON[12].rect);

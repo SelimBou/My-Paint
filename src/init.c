@@ -19,7 +19,7 @@ void init_menu(global_t *all)
 {
     sfColor color = sfColor_fromRGB(128, 128, 128);
 
-    IMAGE = malloc(sizeof(image_t) * 25);
+    IMAGE = malloc(sizeof(image_t) * 26);
     IMAGE[0].image = sfImage_createFromColor(1980, 970, sfWhite);
     IMAGE[0].texture = sfTexture_createFromImage(IMAGE[0].image, sfFalse);
     IMAGE[0].sprite = sfSprite_create();

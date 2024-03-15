@@ -91,7 +91,8 @@ void clickable_section_help(global_t *all)
     mouse.y >= BUTTON[12].pos.y && mouse.y <= BUTTON[12].pos.y + 60 &&
     all->clicked_help == true) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
-            mini_printf("Login: Rares");
+            mini_printf("Login: Rares et Selim\n");
+            sleep(1);
         }
     }
     if (mouse.x >= BUTTON[13].pos.x && mouse.x <= BUTTON[13].pos.x + 120 &&
@@ -99,7 +100,8 @@ void clickable_section_help(global_t *all)
     all->clicked_help == true) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
             mini_printf("File section: clear, save, open\nEdit section: pen,");
-            mini_printf(" eraser\n Help section: login, software help");
+            mini_printf(" eraser\nHelp section: login, software help");
+            sleep(1);
         }
     }
 }

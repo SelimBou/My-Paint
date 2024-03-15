@@ -50,6 +50,7 @@ static void init_other_buttons(global_t *all)
     sfColor_fromRGB(64, 224, 208), 815, 410});
     init_text_button(all, (text_button_t){23, "OUI", 28, sfGreen, 820, 480});
     init_text_button(all, (text_button_t){24, "NON", 28, sfRed, 1090, 480});
+    init_text_button(all, (text_button_t){25, "About", 28, sfBlue, 1630, 120});
 }
 
 void init_text(global_t *all)
