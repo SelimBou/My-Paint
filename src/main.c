@@ -32,7 +32,20 @@ static void draw_ui(global_t *all)
     sfRenderWindow_drawText(WINDOW, IMAGE[17].text, NULL);
 }
 
-static void open_section(global_t *all)
+static void open_section_edit(global_t *all)
+{
+    if (all->clicked_edit == true) {
+        sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[10].rect, NULL);
+        sfRenderWindow_drawSprite(WINDOW, IMAGE[2].sprite, NULL);
+        sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[11].rect, NULL);
+        sfRenderWindow_drawSprite(WINDOW, IMAGE[3].sprite, NULL);
+    } else {
+        sfRectangleShape_destroy(BUTTON[10].rect);
+        sfRectangleShape_destroy(BUTTON[11].rect);
+    }
+}
+
+static void open_section_file(global_t *all)
 {
     if (all->clicked_file == true) {
         sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[7].rect, NULL);
@@ -46,15 +59,10 @@ static void open_section(global_t *all)
         sfRectangleShape_destroy(BUTTON[8].rect);
         sfRectangleShape_destroy(BUTTON[9].rect);
     }
-    if (all->clicked_edit == true) {
-        sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[10].rect, NULL);
-        sfRenderWindow_drawSprite(WINDOW, IMAGE[2].sprite, NULL);
-        sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[11].rect, NULL);
-        sfRenderWindow_drawSprite(WINDOW, IMAGE[3].sprite, NULL);
-    } else {
-        sfRectangleShape_destroy(BUTTON[10].rect);
-        sfRectangleShape_destroy(BUTTON[11].rect);
-    }
+}
+
+static void open_section_help_exit(global_t *all)
+{
     if (all->clicked_help == true) {
         sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[12].rect, NULL);
         sfRenderWindow_drawRectangleShape(WINDOW, BUTTON[13].rect, NULL);
@@ -71,7 +79,14 @@ static void open_section(global_t *all)
     }
 }
 
-static void clickable_section(global_t *all)
+void open_section(global_t *all)
+{
+    open_section_edit(all);
+    open_section_file(all);
+    open_section_help_exit(all);
+}
+
+static void clickable_section_exit(global_t *all)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
 
@@ -90,6 +105,11 @@ static void clickable_section(global_t *all)
         if (EVENT.type == sfEvtMouseButtonPressed)
             sfRenderWindow_close(WINDOW);
     }
+}
+
+static void clickable_section_file(global_t *all)
+{
+    sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
 
     if (mouse.x >= BUTTON[7].pos.x && mouse.x <= BUTTON[7].pos.x + 120 &&
     mouse.y >= BUTTON[7].pos.y && mouse.y <= BUTTON[7].pos.y + 60 &&
@@ -113,6 +133,12 @@ static void clickable_section(global_t *all)
             fclose(file);
         }
     }
+}
+
+static void clickable_section_edit(global_t *all)
+{
+    sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
+
     if (mouse.x >= BUTTON[10].pos.x && mouse.x <= BUTTON[10].pos.x + 120 &&
     mouse.y >= BUTTON[10].pos.y && mouse.y <= BUTTON[10].pos.y + 60 &&
     all->clicked_edit == true) {
@@ -127,6 +153,12 @@ static void clickable_section(global_t *all)
             all->pen_selected = false;
         }
     }
+}
+
+static void clickable_section_help(global_t *all)
+{
+    sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
+
     if (mouse.x >= BUTTON[12].pos.x && mouse.x <= BUTTON[12].pos.x + 120 &&
     mouse.y >= BUTTON[12].pos.y && mouse.y <= BUTTON[12].pos.y + 60 &&
     all->clicked_help == true) {
@@ -141,6 +173,14 @@ static void clickable_section(global_t *all)
             system("zenity --info --text='File section: clear, save, open\nEdit section: pen, eraser\n Help section: login, software help'");
         }
     }
+}
+
+void clickable_section(global_t *all)
+{
+    clickable_section_exit(all);
+    clickable_section_file(all);
+    clickable_section_edit(all);
+    clickable_section_help(all);
 }
 
 void all_actions(global_t *all)
@@ -178,7 +218,7 @@ void main_menu(global_t *all)
     }
 }
 
-void verify_click(global_t *all)
+static void verify_click_file_edit(global_t *all)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
 
@@ -198,6 +238,12 @@ void verify_click(global_t *all)
             all->clicked_help = false;
         }
     }
+}
+
+static void verify_click_help_exit(global_t *all)
+{
+    sfVector2i mouse = sfMouse_getPositionRenderWindow(WINDOW);
+
     if (mouse.x >= BUTTON[5].pos.x && mouse.x <= BUTTON[5].pos.x + 120 &&
         mouse.y >= BUTTON[5].pos.y && mouse.y <= BUTTON[5].pos.y + 60) {
         if (EVENT.type == sfEvtMouseButtonPressed) {
@@ -215,6 +261,12 @@ void verify_click(global_t *all)
             all->clicked_file = false;
         }
     }
+}
+
+void verify_click(global_t *all)
+{
+    verify_click_file_edit(all);
+    verify_click_file_edit(all);
 }
 
 int main(int argc, char **argv)
